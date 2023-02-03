@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin:0;
+  padding: 0;
+}
+
+.imgbox {
+ width: 560px;
+ height: 260px;
+ aspect-ratio: 3/2;
+ object-fit: cover;
+}
