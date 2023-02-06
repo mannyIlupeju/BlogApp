@@ -13,7 +13,7 @@ const getPost = async (req,res)=>{
 
 const readPost = async(req,res) => {
   const {id} = req.params
-
+  console.log(id)
   if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No Post with that id')
 
   const post = await blogMessage.findById(id)

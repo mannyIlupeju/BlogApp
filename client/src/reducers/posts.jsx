@@ -5,7 +5,9 @@ export default (blog=[], action) => {
     case FETCH_ALL:
       return action.payload;
     case READ:
-      return action.payload
+      return blog.filter((blog)=>{
+        blog.id === action.payload
+      });
     case CREATE: 
      return [...blog, action.payload];
     case DELETE:

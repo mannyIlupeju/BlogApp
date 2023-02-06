@@ -2,16 +2,17 @@ import React from 'react'
 import DateObject from 'react-date-object';
 import {Link} from 'react-router-dom'
 
-const Post = ({blog}) => {
+const Post = ({blog, setCurrentID}) => {
   var date = new DateObject();
   let currentDate = date.format("dddd, MMMM DD YYYY");
 
 
+  
 
 
   return (
       <>
-        <div className="card lg:flex-row flex-col gap-6">
+        <div className="card lg:flex-row flex-col gap-6" onClick={()=>{setCurrentID(blog._id)}}>
           <figure>
             <img src={blog.selectedFile} className="imgbox"/>
           </figure>

@@ -3,30 +3,22 @@ import FileBase from 'react-file-base64'
 import {useSelector, useDispatch} from 'react-redux'
 import {createPost} from '../../actions/blogposts'
 
-const Form = () => {
-  const [postData, setPostData] = useState({author:'', title:'', description:'', body:'', tags:'', selectedFile:''})
-  const [message, setMessage] = useState(false)
-  
+const Form = ({postData, setPostData}) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
+    //prevent default submit
     e.preventDefault()
     
-    console.log(postData)
+    //input the postData state into the createPost and dispatch
     dispatch(createPost(postData))
-    setMessage(true)
-
+    
+   //clear the form field after submission
     clear()
 
   }
 
-  const successMessage = () => {
-    setTimeout(() => {
-      <div>
-        <h3>Post successfully made!</h3>
-      </div>
-    }, 3000);
-  }
+ 
   
 
   const clear = () => {
@@ -64,7 +56,9 @@ const Form = () => {
               setPostData({...postData, description: e.target.value})
             }}></textarea>
 
-            
+            <label htmlFor = "body" name="body">
+              Body:
+            </label>
             <textarea cols="30" rows="10" value={postData.body} onChange={(e)=>{
               setPostData({...postData, body: e.target.value})
             }}></textarea>
@@ -85,8 +79,6 @@ const Form = () => {
         </div>
       </form>
     </div>
-
-      {message && successMessage()}
     </>
   )
 }

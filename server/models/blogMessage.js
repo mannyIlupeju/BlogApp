@@ -6,6 +6,7 @@ const blogSchema = mongoose.Schema({
   author: String,
   body: String, 
   tags: [String],
+  link: String,
   selectedFile: String,
   description: String,
   createdAt: {
