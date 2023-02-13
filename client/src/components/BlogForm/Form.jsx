@@ -3,13 +3,13 @@ import FileBase from 'react-file-base64'
 import {useSelector, useDispatch} from 'react-redux'
 import {createPost} from '../../actions/blogposts'
 
+
 const Form = ({postData, setPostData}) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     //prevent default submit
     e.preventDefault()
-    
     //input the postData state into the createPost and dispatch
     dispatch(createPost(postData))
     

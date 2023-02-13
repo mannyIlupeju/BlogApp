@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux'
 import blog from './posts'
-
-export default combineReducers({ blog })
+import user from './auth'
+export default combineReducers({ blog, user })
