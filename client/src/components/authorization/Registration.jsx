@@ -43,7 +43,8 @@ const Registration = () => {
 
   return (
     <>
-      <div className="container w-96 mx-auto mt-20 bg-white p-12">
+      <div className="flex justify-center h-screen">
+        <div className="mt-20 bg-white w-96 p-12 h-fit">
         <div className="flex justify-center mb-8">
           {userCreated && <Success/>}
         </div>
@@ -84,6 +85,7 @@ const Registration = () => {
               <button type="submit" className="btn mt-10" onClick={handleSubmit}>Submit</button>
             </form>
           </div>
+      </div>
       </div>
 
     </>

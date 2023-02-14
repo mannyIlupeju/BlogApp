@@ -1,15 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 * {
   margin:0;
   padding: 0;
 }
 
+body{
+  font-family: "Kanit", "monospace"
+}
+
 .imgbox {
- width: 560px;
- height: 260px;
+ width: 360px;
+ height: auto;
  aspect-ratio: 3/2;
  object-fit: cover;
+}
+
+.brandlogo {
+  width: 50px;
+  position: relative;
+  bottom: 2px;
+}
+
+.blogAppLogo {
+  width: 360px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* .fontClamp {
+  font-size: clamp(32px, 1vw, 48px)
+} */
+
+.nav-background {
+background: rgb(138,186,178);
+background: linear-gradient(167deg, rgba(138,186,178,1) 32%, rgba(112,175,151,1) 72%, rgba(53,153,154,1) 100%);
+}
+
+.backgroundImage { 
+background: rgb(48,133,119);
+background: linear-gradient(167deg, rgba(48,133,119,1) 32%, rgba(112,175,151,1) 72%, rgba(53,153,154,1) 100%);
+}
+
+.loginImage { 
+background: rgb(106,199,183);
+background: linear-gradient(167deg, rgba(106,199,183,1) 30%, rgba(112,175,151,1) 44%, rgba(53,153,154,1) 100%);
 }

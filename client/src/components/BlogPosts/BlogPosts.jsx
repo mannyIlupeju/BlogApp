@@ -11,8 +11,8 @@ function BlogPosts({setCurrentID, currentID}) {
 
   return (
     <>  
-       <div className="container mx-auto gap-10 p-10">
-        <div className="flex flex-col gap-12 p-10">
+       <div className="container mx-auto flex justify-center gap-10 p-10">
+        <div className="flex flex-col gap-12 p-10 text-gray-800">
          {blog.map((blog) => (
             <div key={blog._id}>  
             <Link to = {`/blog/post/${blog._id}`} >

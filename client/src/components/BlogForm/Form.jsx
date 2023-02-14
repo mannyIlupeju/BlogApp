@@ -25,12 +25,9 @@ const Form = ({postData, setPostData}) => {
     setPostData({author:'', title:'', description:'', body:'', tags:'', selectedFile:''})
   }
 
-
-
-
   return (
     <>
-    <div className="flex justify-center">
+    <div className="flex justify-center h-screen">
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-2 mt-10">
     

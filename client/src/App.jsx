@@ -11,12 +11,14 @@ import PostArticle from './components/BlogPosts/BlogPost/PostArticle'
 import { useDispatch } from 'react-redux' //import useDispatch from react-redux so that we can dispatch an action
 import { getPosts } from './actions/blogposts'
 import { setAuthToken } from './api';
+import Footer from './components/shared/Footer'
 
 
 function App() {
   //define the dispatch
   const dispatch = useDispatch()
   const [currentID, setCurrentID] = useState('')
+  const [isLogin, setisLogin] = useState(false)
 
 
 
@@ -33,27 +35,32 @@ function App() {
   const token = localStorage.getItem("token")
   if(token) {
     setAuthToken(token)
+  }else {
+    setAuthToken(null)
   }
   
 
   return (
     <>
-     <div className="">
+     <div className="h-fit bg-gray-600 backgroundImage">
       <Router>
-      <Navbar token ={token}/>
-      
-      <main>
-        <Routes>
-          <Route path= '/' exact element = {<BlogPosts setCurrentID={setCurrentID} currentID={currentID}/>}/>
-          <Route path='/blog/form' exact element={<Form postData={postData} setPostData={setPostData}/>}/>
+        <Navbar isLogin={isLogin} setisLogin={setisLogin}/>
+        
+        <main>
+          <Routes>
+            <Route path= '/' exact element = {<BlogPosts setCurrentID={setCurrentID} currentID={currentID}/>}/>
+            <Route path='/blog/form' exact element={<Form postData={postData} setPostData={setPostData} isLogin={isLogin}/>}/>
+            <Route path='/blog/signin' exact element={<SignIn/>}/>
+            <Route path='/blog/login' exact element={<Login isLogin={isLogin} setisLogin={setisLogin}/>} />
+            <Route path='/blog/register' exact element={<Register/>}/>
+            <Route path = '/blog/post/:id' exact element={<PostArticle currentID={currentID}/>}/>
+          </Routes>
+        </main>
 
-          <Route path='/blog/signin' exact element={<SignIn/>}/>
-          <Route path='/blog/login' exact element={<Login token={token}/>}/>
-          <Route path='/blog/register' exact element={<Register/>}/>
-          <Route path = '/blog/post/:id' exact element={<PostArticle currentID={currentID}/>}/>
-        </Routes>
-      </main>
+
+
       </Router>
+      <Footer/>
     </div>
     </>
   )

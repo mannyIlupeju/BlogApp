@@ -12,27 +12,32 @@ const PostArticle = () => {
     blog._id === id
   ) : null)
 
-  console.log(blog)
 
   return (
-    <div>
-      <div className="p-12">
-
+    <div className=" grid grid-cols-2 mx-20 min-h-full text-gray-800 leading-loose">
+      <div className="">
         <div className="mb-8">
-          <h1 className="text-4xl">{blog.title}</h1>
+          <h1 className="text-4xl mt-10">{blog.title}</h1>
           <p className="text-xs mt-3"> by {blog.author}</p>
         </div>
         
-        <div className="text-xl w-2/4">
+        <div className="text-md min-w-full">
           <p>{blog.body}</p>
         </div>
 
-        <div className="mt-20">
+        <div className="mt-20 mb-10">
           <Link to ="/">
           <button className="btn btn-warning">READ MORE</button>
           </Link>
         </div>
       </div>
+
+
+        <div className="translate-y-32 translate-x-20 h-fit">
+          <figure>
+            <img src={blog.selectedFile} className="imgbox"/>
+          </figure>
+        </div>
     </div>
   )
 }
