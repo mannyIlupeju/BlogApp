@@ -116,7 +116,7 @@ const Login = ({isLogin, setisLogin}) => {
               <label htmlFor="password" className="text-white">
                   Password:
               </label>
-              <input type="text" name="password" id="password" value={checkUserData.password} onChange={(e)=>{
+              <input type="password" name="password" id="password" value={checkUserData.password} onChange={(e)=>{
                 e.preventDefault()
                 setcheckUserData({...checkUserData, password:e.target.value})
               }}required/>  

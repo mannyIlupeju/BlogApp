@@ -5,13 +5,18 @@ import {useSelector, useDispatch} from 'react-redux'
 import Success from './Messages/success'
 import { FaEye } from 'react-icons/fa'
 
-
+//ToDoList
+//Handle ShowPassword and HidePassword functionality
 
 const Registration = () => {
   const [userCreated, setUserCreated] = useState(false)
   const [errorMessage, setErrorMessage] = useState(false)
+  const []
   const [userData, setUserData] = useState({name: '', email: '', password:'', retype: ''})
   const dispatch = useDispatch()
+
+
+  
 
 
 
@@ -24,7 +29,6 @@ const Registration = () => {
     if(userData.password === userData.retype) {
       //dispatch userData to registerPost
       dispatch(registerPost(userData))
-
       setUserCreated(true)
 
       setTimeout(()=>{
@@ -75,21 +79,23 @@ const Registration = () => {
               <label htmlFor="name" className="text-white">
                   Password:
               </label>
-              <FaEye className="relative top-5 left-60"/>
-              <input type="text" name="password" id="password" value={userData.password} onChange={(e)=>{
+              <FaEye className="relative top-5 left-60" onClick={showPassword}/>
+              <input type="password" name="password" id="password" value={userData.password} onChange={(e)=>{
                 e.preventDefault()
                 setUserData({...userData, password: e.target.value})
               }} required/>
               </div>
 
-              
+              <div className="flex flex-col">
               <label htmlFor="name" className="text-white">
                   Retype password:
               </label>
-              <input type="text" name="password" id="password"  value={userData.retype} onChange={(e)=>{
+              <FaEye className="relative top-5 left-60" onClick={showPassword}/>
+              <input type="password" name="password" id="password"  value={userData.retype} onChange={(e)=>{
                 e.preventDefault()
                 setUserData({...userData, retype: e.target.value})
               }}required/>
+              </div>
 
               <button type="submit" className="btn mt-4 btn-primary" onClick={handleSubmit}>Submit</button>
               
