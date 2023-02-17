@@ -85,28 +85,27 @@ var createPost = function createPost(req, res) {
 
           newPost = new blogMessage(post);
           _context3.prev = 2;
-          console.log(req);
-          _context3.next = 6;
+          _context3.next = 5;
           return regeneratorRuntime.awrap(newPost.save());
 
-        case 6:
+        case 5:
           res.status(201).json(newPost);
-          _context3.next = 12;
+          _context3.next = 11;
           break;
 
-        case 9:
-          _context3.prev = 9;
+        case 8:
+          _context3.prev = 8;
           _context3.t0 = _context3["catch"](2);
           res.status(409).json({
             message: _context3.t0.message
           });
 
-        case 12:
+        case 11:
         case "end":
           return _context3.stop();
       }
     }
-  }, null, null, [[2, 9]]);
+  }, null, null, [[2, 8]]);
 };
 
 var deletePost = function deletePost(req, res) {

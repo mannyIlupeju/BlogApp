@@ -19,6 +19,7 @@ function App() {
   const dispatch = useDispatch()
   const [currentID, setCurrentID] = useState('')
   const [isLogin, setisLogin] = useState(false)
+ 
 
 
 
@@ -38,17 +39,22 @@ function App() {
   }else {
     setAuthToken(null)
   }
+
+  useEffect(()=> {
+    if(token) {
+      setisLogin(true)
+    }
+  })
   
 
   return (
     <>
-     <div className="h-fit bg-gray-600 backgroundImage">
+     <div className="bg-gray-600 backgroundImage">
       <Router>
         <Navbar isLogin={isLogin} setisLogin={setisLogin}/>
-        
         <main>
           <Routes>
-            <Route path= '/' exact element = {<BlogPosts setCurrentID={setCurrentID} currentID={currentID}/>}/>
+            <Route path= '/' exact element = {<BlogPosts setCurrentID={setCurrentID} currentID={currentID} isLogin={isLogin}/>}/>
             <Route path='/blog/form' exact element={<Form postData={postData} setPostData={setPostData} isLogin={isLogin}/>}/>
             <Route path='/blog/signin' exact element={<SignIn/>}/>
             <Route path='/blog/login' exact element={<Login isLogin={isLogin} setisLogin={setisLogin}/>} />

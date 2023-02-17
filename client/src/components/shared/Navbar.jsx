@@ -2,27 +2,10 @@ import React, {useState, useEffect} from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 
-//TODOLIST
-//When we login we want the Signup/SignIn item to change to logout. It isnt working because useEffect doesnt load unless page refreshes
-
 
 function Navbar({isLogin, setisLogin}) {
-  //get token from localStorage
-  // const token = localStorage.getItem("token")
-  // {token ? setisLogin(true) : console.log('bye')}
 
-  //if token is true then setisLogin should be true
-  // useEffect(()=> {
-  //   if(token) {
-  //     setisLogin(true)
-  //   }
-  // }, [{token}])
-
-  if(isLogin) {
-    console.log('hi')
-  }
-
-
+  //LogOut functionality
   const logOut = () => {
     setisLogin(false)
     localStorage.clear()

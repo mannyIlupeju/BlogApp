@@ -31,7 +31,6 @@ const createPost = async(req,res) => {
   //To create new post push post inside blogMessage function
   const newPost = new blogMessage(post)
   try {
-    console.log(req)
     await newPost.save();
     res.status(201).json(newPost)
   } catch (error) {

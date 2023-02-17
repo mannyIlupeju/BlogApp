@@ -14,11 +14,13 @@ body{
   font-family: "Kanit", "monospace"
 }
 
+
 .imgbox {
- width: 360px;
- height: auto;
- aspect-ratio: 3/2;
- object-fit: cover;
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 3/2;
+  
 }
 
 .brandlogo {
@@ -50,4 +52,26 @@ background: linear-gradient(167deg, rgba(48,133,119,1) 32%, rgba(112,175,151,1) 
 .loginImage { 
 background: rgb(106,199,183);
 background: linear-gradient(167deg, rgba(106,199,183,1) 30%, rgba(112,175,151,1) 44%, rgba(53,153,154,1) 100%);
+}
+
+.loginBox {
+-webkit-clip-path: polygon(31% 0, 100% 0, 100% 100%, 0% 100%);
+clip-path: polygon(31% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.textDesc {
+overflow: hidden;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+}
+
+.postBcground {
+  width: 300px;
+  padding: 18px;
+
+background: rgb(106,199,183);
+background: linear-gradient(167deg, rgba(106,199,183,1) 30%, rgba(127,185,163,1) 48%, rgba(53,153,154,1) 100%);
+
+
 }

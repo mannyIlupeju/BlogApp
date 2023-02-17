@@ -45,7 +45,8 @@ const loginPost = async (req,res)=>{
 
    //CHECK IF USER EXISTS
    const user = await User.findOne({email: req.body.email})
-   if(!user) return res.status(400).send("Email is not found")
+   if(!user) return res.status(400).send("Email is not found") 
+   
 
    //CHECK IF PASSWORD IS CORRECT
    const validPass = await bcrypt.compare(req.body.password, user.password) 
@@ -54,7 +55,10 @@ const loginPost = async (req,res)=>{
   //Create and assign a token
   //it takes the ID to know the user is logged in and a secret token
   const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET); 
+
   res.header('Authorization', token).send({token})
+
+  
 
 }
 
