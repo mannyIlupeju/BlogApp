@@ -11,12 +11,13 @@ import { FaEye } from 'react-icons/fa'
 const Registration = () => {
   const [userCreated, setUserCreated] = useState(false)
   const [errorMessage, setErrorMessage] = useState(false)
-  const []
   const [userData, setUserData] = useState({name: '', email: '', password:'', retype: ''})
   const dispatch = useDispatch()
 
 
-  
+  function showPassword() {
+
+  }
 
 
 
@@ -80,7 +81,7 @@ const Registration = () => {
                   Password:
               </label>
               <FaEye className="relative top-5 left-60" onClick={showPassword}/>
-              <input type="password" name="password" id="password" value={userData.password} onChange={(e)=>{
+              <input type="password" name="password" id="password1" value={userData.password} onChange={(e)=>{
                 e.preventDefault()
                 setUserData({...userData, password: e.target.value})
               }} required/>
@@ -91,7 +92,7 @@ const Registration = () => {
                   Retype password:
               </label>
               <FaEye className="relative top-5 left-60" onClick={showPassword}/>
-              <input type="password" name="password" id="password"  value={userData.retype} onChange={(e)=>{
+              <input type="password" name="password" id="password2"  value={userData.retype} onChange={(e)=>{
                 e.preventDefault()
                 setUserData({...userData, retype: e.target.value})
               }}required/>
