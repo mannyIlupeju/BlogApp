@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { loginPost } from '../../actions/authPosts'
 import RiseLoader from 'react-spinners/RiseLoader'
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
 
 
@@ -14,6 +15,7 @@ const Login = ({isLogin, setisLogin}) => {
   const [checkUserData, setcheckUserData] = useState({email: '', password: ''})
   const [isLoading, setisLoading] = useState(false)
   const [color, setColor] = useState('#ffffff')
+  const [hidePassword, sethidePassword] = useState(false)
 
 
 
@@ -80,6 +82,16 @@ const Login = ({isLogin, setisLogin}) => {
 
 
  
+ 
+    
+    function closePassword() {
+      sethidePassword(true)
+    }
+
+    function showPassword() {
+      sethidePassword(false)
+    }
+  
 
 
   
@@ -106,6 +118,7 @@ const Login = ({isLogin, setisLogin}) => {
 
           <div>
             <form className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3">
               <label htmlFor="email" className="text-white">
                   Email:
               </label>
@@ -113,13 +126,19 @@ const Login = ({isLogin, setisLogin}) => {
                 e.preventDefault()
                 setcheckUserData({...checkUserData, email:e.target.value})
               }} required/>
-              <label htmlFor="password" className="text-white">
-                  Password:
-              </label>
-              <input type="password" name="password" id="password" value={checkUserData.password} onChange={(e)=>{
-                e.preventDefault()
-                setcheckUserData({...checkUserData, password:e.target.value})
-              }}required/>  
+              </div>
+
+              <div className="flex flex-col">
+                <label htmlFor="password" className="text-white">
+                    Password:
+                </label>
+                {!hidePassword ? <FaEye className="relative top-5 left-60" onClick={closePassword}/> : <FaEyeSlash className="relative top-5 left-60" onClick={showPassword}/>}
+                <input type={!hidePassword ? 'text' : 'password'} name="password" id="password" value={checkUserData.password} onChange={(e)=>{
+                  e.preventDefault()
+                  setcheckUserData({...checkUserData, password:e.target.value})
+                }}required/>  
+              </div>
+
               <button className="btn btn-primary mt-6" type="submit" onClick={handleSubmit}>
                 {isLoading ? <RiseLoader color="#ffffff" size={10}/> : 'Submit'}
               </button>

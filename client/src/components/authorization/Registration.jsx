@@ -3,22 +3,32 @@ import { Link } from 'react-router-dom'
 import { registerPost } from '../../actions/authPosts'
 import {useSelector, useDispatch} from 'react-redux'
 import Success from './Messages/success'
-import { FaEye } from 'react-icons/fa'
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
 //ToDoList
 //Handle ShowPassword and HidePassword functionality
 
 const Registration = () => {
   const [userCreated, setUserCreated] = useState(false)
-  const [errorMessage, setErrorMessage] = useState(false)
   const [userData, setUserData] = useState({name: '', email: '', password:'', retype: ''})
+
+
+
+  const [hidePassword, sethidePassword] = useState(false)
+  
+
+  //useDispatch
   const dispatch = useDispatch()
 
 
-  function showPassword() {
-
+  function closePassword() {
+    sethidePassword(true)
   }
 
+  function showPassword() {
+    sethidePassword(false)
+  }
+  
 
 
   const handleSubmit = (e) => {
@@ -77,22 +87,22 @@ const Registration = () => {
               }}required/>
 
               <div className="flex flex-col">
-              <label htmlFor="name" className="text-white">
-                  Password:
-              </label>
-              <FaEye className="relative top-5 left-60" onClick={showPassword}/>
-              <input type="password" name="password" id="password1" value={userData.password} onChange={(e)=>{
-                e.preventDefault()
-                setUserData({...userData, password: e.target.value})
-              }} required/>
+                <label htmlFor="name" className="text-white">
+                    Password:
+                </label>
+                {!hidePassword ? <FaEye className="relative top-5 left-60" onClick={closePassword}/> : <FaEyeSlash className="relative top-5 left-60" onClick={showPassword}/>}
+                <input type={!hidePassword ? 'text' : 'password'} name="password" id="password1" value={userData.password} onChange={(e)=>{
+                  e.preventDefault()
+                  setUserData({...userData, password: e.target.value})
+                }} required/>
               </div>
 
               <div className="flex flex-col">
               <label htmlFor="name" className="text-white">
                   Retype password:
               </label>
-              <FaEye className="relative top-5 left-60" onClick={showPassword}/>
-              <input type="password" name="password" id="password2"  value={userData.retype} onChange={(e)=>{
+              {!hidePassword ? <FaEye className="relative top-5 left-60" onClick={closePassword}/> : <FaEyeSlash className="relative top-5 left-60" onClick={showPassword}/>}
+              <input type={!hidePassword ? 'text' : 'password'} name="password" id="password2"  value={userData.retype} onChange={(e)=>{
                 e.preventDefault()
                 setUserData({...userData, retype: e.target.value})
               }}required/>

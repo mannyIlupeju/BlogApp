@@ -9,6 +9,7 @@ function Navbar({isLogin, setisLogin}) {
   const logOut = () => {
     setisLogin(false)
     localStorage.clear()
+    navigate ('/', {replace: true})
   }
 
 
