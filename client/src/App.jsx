@@ -19,6 +19,7 @@ function App() {
   const dispatch = useDispatch()
   const [currentID, setCurrentID] = useState('')
   const [isLogin, setisLogin] = useState(false)
+  const[isLoading, setisLoading] = useState(true)
  
 
 
@@ -26,7 +27,10 @@ function App() {
 
   //we need to use useEffect to dispatch the action
   useEffect(()=>{
-     dispatch(getPosts(currentID));
+    setTimeout(() => {
+      dispatch(getPosts(currentID))
+      setisLoading(false);
+    }, 7000);
   },[currentID, dispatch]);
 
   // if token exists in localStorage it will automatically log user in
@@ -46,12 +50,12 @@ function App() {
 
   return (
     <>
-     <div className="bg-gray-600 backgroundImage">
+     <div className="bg-gray-600 h-fit backgroundImage">
       <Router>
         <Navbar isLogin={isLogin} setisLogin={setisLogin}/>
         <main>
           <Routes>
-            <Route path= '/' exact element = {<BlogPosts setCurrentID={setCurrentID} currentID={currentID} isLogin={isLogin}/>}/>
+            <Route path= '/' exact element = {<BlogPosts setCurrentID={setCurrentID} currentID={currentID} isLogin={isLogin} isLoading={isLoading}/>}/>
             <Route path='/blog/form' exact element={<Form postData={postData} setPostData={setPostData} isLogin={isLogin}/>}/>
             <Route path='/blog/signin' exact element={<SignIn/>}/>
             <Route path='/blog/login' exact element={<Login isLogin={isLogin} setisLogin={setisLogin}/>} />

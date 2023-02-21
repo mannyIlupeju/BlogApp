@@ -15,6 +15,10 @@ body{
 }
 
 
+.loader-screen {
+  height: 100vh;
+}
+
 .imgbox {
   width: 300px;
   height: auto;
@@ -73,6 +77,4 @@ display: -webkit-box;
 
 background: rgb(106,199,183);
 background: linear-gradient(167deg, rgba(106,199,183,1) 30%, rgba(127,185,163,1) 48%, rgba(53,153,154,1) 100%);
-
-
 }

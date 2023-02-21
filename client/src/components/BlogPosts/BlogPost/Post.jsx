@@ -12,16 +12,6 @@ const Post = ({blog, currentID, isLogin, setCurrentID}) => {
   //setting dispatch
   const dispatch = useDispatch()
 
-
-  //delete post functionality 
-  const deleteItem = (e) => {
-    e.preventDefault();
-    dispatch(deletePost(currentID));
-  }
-
-
-
-
   return (
       <>
         <div className="relative flex-col gap-10 w-96 postBcground" onClick={()=>{setCurrentID(blog._id)}}>
@@ -36,7 +26,6 @@ const Post = ({blog, currentID, isLogin, setCurrentID}) => {
               <div className="flex gap-1">
               {<FaThumbsUp onClick={(e)=>{
                   e.preventDefault()
-                  // console.log(blog._id)
                   dispatch(likePost(blog._id))
                 }
               }/>}
