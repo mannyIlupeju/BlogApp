@@ -22,9 +22,6 @@ function App() {
  
 
 
-
-  // console.log(currentID)
-
   const [postData, setPostData] = useState({author:'', title:'', description:'', body:'', tags:'', selectedFile:''})
 
   //we need to use useEffect to dispatch the action

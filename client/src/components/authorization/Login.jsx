@@ -8,8 +8,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
 
 
-
-const Login = ({isLogin, setisLogin}) => {
+const Login = ({setisLogin}) => {
   const [successMessage, setsuccessMessage] = useState(false)
   const [errorMessage, setErrorMessage] = useState(false)
   const [checkUserData, setcheckUserData] = useState({email: '', password: ''})
@@ -27,28 +26,6 @@ const Login = ({isLogin, setisLogin}) => {
     setcheckUserData({name: '', email: '', password:''})
   }
   
-  //Login functionality control 
-  // function loginfunctionality () {
-    
-  //   if(localStorage.getItem('token')) {
-  //     setisLoading(false)
-  //     setisLogin(true)
-  //     setsuccessMessage(true)
-      
-  //     setTimeout(() => {
-  //     clearLogin()
-  //     setsuccessMessage(false)
-  //     }, 2000);
-  //   } 
-  //   else if (!token) {
-  //     setErrorMessage(true)
-
-  //     setTimeout(() => {
-  //       clearLogin()
-  //       setErrorMessage(false)
-  //     }, 2000);
-  //   }
-  // }
 
   const navigate = useNavigate()
   
@@ -68,29 +45,29 @@ const Login = ({isLogin, setisLogin}) => {
         setsuccessMessage(true)
         navigate ('/', {replace: true})
       }
-      
+      else {
+        setErrorMessage(true)
+        setTimeout(() => {
+          setErrorMessage(false)
+          setisLoading(false)
+          clearLogin()
+        }, 1000);
+      }
+
     }, 2000);
-    // if(token) {
-    //   navigate ('/', {replace: true})
-        
-    //   setTimeout(() => {
-    //   clearLogin()
-    //   setsuccessMessage(false)
-    //   }, 2000);
-    // } 
+    
+
+ 
   }
 
 
- 
- 
-    
-    function closePassword() {
-      sethidePassword(true)
-    }
-
-    function showPassword() {
-      sethidePassword(false)
-    }
+  //password hide/show functionality  
+  function closePassword() {
+    sethidePassword(true)
+  }
+  function showPassword() {
+    sethidePassword(false)
+  }
   
 
 

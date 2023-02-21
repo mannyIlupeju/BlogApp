@@ -5,15 +5,11 @@ import {useSelector, useDispatch} from 'react-redux'
 import Success from './Messages/success'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
-//ToDoList
-//Handle ShowPassword and HidePassword functionality
 
 const Registration = () => {
   const [userCreated, setUserCreated] = useState(false)
   const [userData, setUserData] = useState({name: '', email: '', password:'', retype: ''})
-
-
-
+  //password hide/show state
   const [hidePassword, sethidePassword] = useState(false)
   
 
@@ -21,10 +17,10 @@ const Registration = () => {
   const dispatch = useDispatch()
 
 
+  //password hide/show functions
   function closePassword() {
     sethidePassword(true)
   }
-
   function showPassword() {
     sethidePassword(false)
   }

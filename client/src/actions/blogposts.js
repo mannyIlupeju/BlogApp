@@ -1,5 +1,5 @@
 import * as api from '../api'
-import { FETCH_ALL, CREATE, DELETE } from '../constant/actionTypes'
+import { FETCH_ALL, CREATE, DELETE, UPDATE } from '../constant/actionTypes'
 
 
 export const getPosts = () => async(dispatch) => {
@@ -18,7 +18,7 @@ export const createPost = (post) => async(dispatch) => {
      if(dispatch({type: CREATE, payload:data})){
        console.log('sent')
      }
-     
+                   
   } catch (error) {
     console.log(error)
   }
@@ -36,7 +36,16 @@ export const readPost = (id) => async(dispatch) => {
 export const deletePost = (id) => async(dispatch) => {
   try {
     const {data} = await api.deletePost(id)
-    dispatch({type: DELETE, payload: id})
+    dispatch({type: DELETE, payload: data})
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const likePost = (id) => async(dispatch) => {
+  try {
+    const {data} = await api.likePost(id)
+    dispatch({type: UPDATE, payload: data})
   } catch (error) {
     console.log(error)
   }

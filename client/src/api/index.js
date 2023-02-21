@@ -13,6 +13,7 @@ export const createPost = (newPost) => axios.post(url, newPost, setAuthToken);
 export const deletePost = (id) => axios.delete(`${urlPost}/${id}`);
 export const registerPost=(savedUser) => axios.post(authUrl, savedUser); 
 export const loginPost = (user) => axios.post(loginUrl, user)
+export const likePost = (id) => axios.patch(`${urlPost}/${id}/likePost`)
   
 export const setAuthToken = (token) => {
   if(token) {

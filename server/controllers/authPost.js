@@ -10,19 +10,15 @@ const registerPost = async (req,res)=>{
   const {error} = registerValidation(req.body)
   if(error) return res.status(400).send(error.details[0].message)
 
-
-
   //check if user is in database
   const emailExist = await User.findOne({email: req.body.email})
   if (emailExist) res.status(400).send('Email already exists')
-
 
   //Hash the password - We must protect password from being visible when we save it
   const salt = await bcrypt.genSalt(10) //the complexity of the string that will get generated to protect our password
   const hashedPassword = await bcrypt.hash(req.body.password, salt)
 
-
-
+  
   // To Create a new user
   const user = new User({
     name: req.body.name,

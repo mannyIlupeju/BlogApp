@@ -1,5 +1,5 @@
 
-import { AxiosError } from 'axios'
+
 import * as api from '../api'
 
 
@@ -34,3 +34,5 @@ export const loginPost = (user) => async(dispatch) => {
     
   }
 }
+
+
