@@ -49,8 +49,8 @@ background: linear-gradient(167deg, rgba(138,186,178,1) 32%, rgba(112,175,151,1)
 }
 
 .backgroundImage { 
-background: rgb(48,133,119);
-background: linear-gradient(167deg, rgba(48,133,119,1) 32%, rgba(112,175,151,1) 72%, rgba(53,153,154,1) 100%);
+background: rgb(94,124,119);
+background: linear-gradient(167deg, rgba(94,124,119,1) 36%, rgba(127,185,163,1) 67%, rgba(53,153,154,1) 100%);
 }
 
 .loginImage { 
@@ -74,7 +74,9 @@ display: -webkit-box;
   width: 300px;
   padding: 18px;
   border-radius: 10px;
-
-background: rgb(106,199,183);
-background: linear-gradient(167deg, rgba(106,199,183,1) 30%, rgba(127,185,163,1) 48%, rgba(53,153,154,1) 100%);
+background: rgba( 255, 255, 255, 0 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 2px );
+-webkit-backdrop-filter: blur( 2px );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }

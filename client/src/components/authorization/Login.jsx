@@ -9,6 +9,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
 
 const Login = ({setisLogin}) => {
+
   const [successMessage, setsuccessMessage] = useState(false)
   const [errorMessage, setErrorMessage] = useState(false)
   const [checkUserData, setcheckUserData] = useState({email: '', password: ''})
@@ -31,14 +32,12 @@ const Login = ({setisLogin}) => {
   
   //Login submit functionality
   const handleSubmit = (e) => {
-  
     e.preventDefault()
     dispatch(loginPost(checkUserData))
     setisLoading(true)
 
     setTimeout(() => {
       const token = localStorage.getItem('token')
-      console.log(token)
       if(token){
         setisLoading(false)
         setisLogin(true)
@@ -75,8 +74,8 @@ const Login = ({setisLogin}) => {
 
   return (
     <>
-    <div className="flex justify-center mx-auto mt-20 h-screen">
-      <div className="postBcground h-fit p-12 w-96">
+    <div className="flex justify-center mx-auto">
+      <div className="postBcground p-12 w-96">
         <div className="text-center mb-4">
           <h1 className="uppercase text-2xl text-slate-900">Login</h1>
         </div>

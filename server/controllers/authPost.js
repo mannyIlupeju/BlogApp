@@ -3,6 +3,7 @@ const User = require('../models/auth')
 const jwt = require('jsonwebtoken') //for login verification
 const bcrypt = require('bcryptjs') //we use this to protect the password 
 const {registerValidation, loginValidation} = require('../validation')
+const { isError, valid } = require('joi')
 
 
 const registerPost = async (req,res)=>{
@@ -43,20 +44,22 @@ const loginPost = async (req,res)=>{
    const user = await User.findOne({email: req.body.email})
    if(!user) return res.status(400).send("Email is not found") 
    
+   
 
    //CHECK IF PASSWORD IS CORRECT
    const validPass = await bcrypt.compare(req.body.password, user.password) 
    if(!validPass) return res.status(400).send('Login failed')
+
    
   //Create and assign a token
   //it takes the ID to know the user is logged in and a secret token
   const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET); 
-
   res.header('Authorization', token).send({token})
 
-  
-
 }
+
+
+
 
 
 module.exports = {registerPost, loginPost}

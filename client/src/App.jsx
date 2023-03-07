@@ -50,7 +50,7 @@ function App() {
 
   return (
     <>
-     <div className="bg-gray-600 h-fit backgroundImage">
+     <div className="bg-gray-600 backgroundImage">
       <Router>
         <Navbar isLogin={isLogin} setisLogin={setisLogin}/>
         <main>

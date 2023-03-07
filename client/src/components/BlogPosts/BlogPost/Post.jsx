@@ -6,8 +6,7 @@ import { deletePost, likePost } from '../../../actions/blogposts';
 import { useDispatch } from 'react-redux';
 
 const Post = ({blog, currentID, isLogin, setCurrentID}) => {
-  var date = new DateObject();
-  let currentDate = date.format("dddd, MMMM DD YYYY");
+
 
   //setting dispatch
   const dispatch = useDispatch()
@@ -37,7 +36,7 @@ const Post = ({blog, currentID, isLogin, setCurrentID}) => {
           </figure>
 
           <div className="flex flex-col gap-2 mt-4 md:gap-2 w-fit">
-            <p className="text-xs">{currentDate}</p>
+            <p className="text-xs">{blog.createdAt.slice(0, 10)}</p>
 
             <div>
             <h1 className="text-extrabold text-2xl">{blog.title}</h1>

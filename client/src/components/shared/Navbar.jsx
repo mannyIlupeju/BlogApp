@@ -4,6 +4,8 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 function Navbar({isLogin, setisLogin}) {
 
+  const navigate = useNavigate()
+
   //LogOut functionality
   const logOut = () => {
     setisLogin(false)

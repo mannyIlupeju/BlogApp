@@ -18,10 +18,9 @@ export const registerPost = (savedUser) => async(dispatch) => {
 }
 
 export const loginPost = (user) => async(dispatch) => {
-  console.log(user)
+
   try {
     const {data} = await api.loginPost({email:user.email, password:user.password})
-    console.log(data)
     const token = data.token;
     // //set JWT token to local 
     localStorage.setItem("token", token)

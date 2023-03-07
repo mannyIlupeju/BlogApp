@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Post from './BlogPost/Post'
 import { useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
@@ -7,8 +7,6 @@ import RiseLoader from 'react-spinners/RiseLoader'
 
 function BlogPosts({setCurrentID, currentID, isLogin, isLoading}) {
 
-
-
   const blog = useSelector((state)=>state.blog)
 
 
@@ -16,7 +14,7 @@ function BlogPosts({setCurrentID, currentID, isLogin, isLoading}) {
     <>  
      {isLoading ? 
      <div className="loader-screen flex justify-center translate-y-52">
-       <RiseLoader size={80}/> 
+       <RiseLoader size={50}/> 
       </div>
       :
         <div className="flex justify-center">

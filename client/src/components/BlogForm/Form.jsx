@@ -18,8 +18,6 @@ const Form = ({postData, setPostData}) => {
 
   }
 
- 
-  
 
   const clear = () => {
     setPostData({author:'', title:'', description:'', body:'', tags:'', selectedFile:''})
@@ -27,10 +25,9 @@ const Form = ({postData, setPostData}) => {
 
   return (
     <>
-    <div className="flex justify-center h-screen">
+    <div className="flex justify-center">
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-2 mt-10">
-    
+        <div className="flex flex-col gap-2 my-10 text-gray-800">
             <label htmlFor = "title">
               Title:
             </label>
